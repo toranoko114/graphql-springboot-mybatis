@@ -1,0 +1,9 @@
+# クエリ定義
+type Query {
+    fetchEmployeeById(employeeId: ID): EmployeeResponse
+}
+# タイプ定義
+type EmployeeResponse {
+    employeeId: ID!
+    employeeName: String
+}
