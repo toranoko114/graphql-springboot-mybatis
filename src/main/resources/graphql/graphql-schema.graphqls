@@ -6,4 +6,11 @@ type Query {
 type EmployeeResponse {
     employeeId: ID!
     employeeName: String
+    department: Department
+    gender: String
+}
+
+type Department {
+    departmentId: ID!
+    departmentName: String
 }

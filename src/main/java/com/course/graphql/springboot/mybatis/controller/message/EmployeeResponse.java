@@ -14,5 +14,13 @@ public class EmployeeResponse {
 
   @JsonProperty("employeeId") private String employeeId;
   @JsonProperty("employeeName") private String employeeName;
+  @JsonProperty("department") private Department department;
+  @JsonProperty("gender") private String gender;
+
+  @Data
+  private static class Department {
+    @JsonProperty("departmentId") private Integer departmentId;
+    @JsonProperty("departmentName") private String departmentName;
+  }
 
 }

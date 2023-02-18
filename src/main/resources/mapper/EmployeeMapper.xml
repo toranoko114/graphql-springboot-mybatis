@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.graphql.springboot.mybatis.infrastructure.mapper.EmployeeMapper">
+  <!-- 取得結果とDtoとのマッピング定義-->
+  <resultMap id="employeeMap" type="EmployeeDto">
+    <id property="employeeId" column="EMPLOYEE_ID"/>
+    <result property="employeeName" column="EMPLOYEE_NAME"/>
+    <result property="department" column="DEPARTMENT_ID" />
+    <result property="gender" column="GENDER"/>
+  </resultMap>
+
+  <select id="fetchEmployeeById" resultMap="employeeMap">
+    SELECT
+      EMPLOYEE_ID,
+      EMPLOYEE_NAME,
+      DEPARTMENT_ID,
+      GENDER
+    FROM
+      EMPLOYEE
+    WHERE
+      EMPLOYEE_ID = #{employeeId}
+  </select>
+
+</mapper>
