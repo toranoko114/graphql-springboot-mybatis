@@ -2,6 +2,7 @@ package com.course.graphql.springboot.mybatis.controller;
 
 import com.course.graphql.springboot.mybatis.controller.message.EmployeeResponse;
 import com.course.graphql.springboot.mybatis.service.EmployeeService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -19,5 +20,13 @@ public class EmployeeGraphqlController {
   public EmployeeResponse fetchEmployeeById(@Argument final String employeeId) {
     return this.modelMapper.map(this.service.fetchEmployeeById(employeeId), EmployeeResponse.class);
   }
+
+  @QueryMapping
+  public List<EmployeeResponse> fetchEmployeeAll() {
+    return List.of(
+        this.modelMapper.map(this.service.fetchEmployeeAll(), EmployeeResponse[].class)
+    );
+  }
+
 
 }

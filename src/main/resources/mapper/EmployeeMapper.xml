@@ -9,7 +9,7 @@
     <result property="gender" column="GENDER"/>
   </resultMap>
 
-  <select id="fetchEmployeeById" resultMap="employeeMap">
+  <sql id="baseSelect">
     SELECT
       EMPLOYEE_ID,
       EMPLOYEE_NAME,
@@ -17,8 +17,16 @@
       GENDER
     FROM
       EMPLOYEE
-    WHERE
-      EMPLOYEE_ID = #{employeeId}
+  </sql>
+
+  <select id="fetchEmployeeById" resultMap="employeeMap">
+    <include refid="baseSelect"/>
+      WHERE
+        EMPLOYEE_ID = #{employeeId}
+  </select>
+
+  <select id="fetchEmployeeAll" resultMap="employeeMap">
+    <include refid="baseSelect"/>
   </select>
 
 </mapper>

@@ -1,6 +1,7 @@
 # クエリ定義
 type Query {
     fetchEmployeeById(employeeId: ID): EmployeeResponse
+    fetchEmployeeAll: [EmployeeResponse]
 }
 # タイプ定義
 type EmployeeResponse {
