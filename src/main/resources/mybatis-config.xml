@@ -8,6 +8,7 @@
   </settings>
   <typeAliases>
     <typeAlias alias="EmployeeDto" type="com.course.graphql.springboot.mybatis.service.dto.EmployeeDto"/>
+    <typeAlias alias="PersonalDto" type="com.course.graphql.springboot.mybatis.service.dto.PersonalDto"/>
   </typeAliases>
   <typeHandlers>
     <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.course.graphql.springboot.mybatis.enums.Department"/>

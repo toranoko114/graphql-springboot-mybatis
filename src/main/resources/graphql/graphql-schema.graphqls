@@ -1,3 +1,5 @@
+scalar Date
+
 # クエリ定義
 type Query {
     fetchEmployeeById(employeeId: ID): EmployeeResponse
@@ -9,9 +11,17 @@ type EmployeeResponse {
     employeeName: String
     department: Department
     gender: String
+    personal: Personal
 }
 
 type Department {
     departmentId: ID!
     departmentName: String
+}
+
+type Personal {
+    employeeId: ID!
+    birthday: Date
+    telephoneNumber: String
+    mailAddress: String
 }
