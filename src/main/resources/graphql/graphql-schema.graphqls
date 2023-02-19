@@ -24,6 +24,9 @@ input EmployeeRequest {
     departmentId: Int!
     employeeName: String!
     gender: String!
+    birthday: Date!
+    telephoneNumber: String!
+    mailAddress: String!
 }
 
 type Department {

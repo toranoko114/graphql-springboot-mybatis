@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.course.graphql.springboot.mybatis.infrastructure.mapper.PersonalMapper">
+
+  <insert id="insert">
+    INSERT INTO PERSONAL
+      (
+      EMPLOYEE_ID,
+      BIRTHDAY,
+      TELEPHONE_NUMBER,
+      MAIL_ADDRESS
+      )
+    VALUES
+      (
+      #{employeeId},
+      #{birthday},
+      #{telephoneNumber},
+      #{mailAddress}
+      )
+  </insert>
+
+</mapper>
