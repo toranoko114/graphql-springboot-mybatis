@@ -5,6 +5,10 @@ type Query {
     fetchEmployeeById(employeeId: ID): EmployeeResponse
     fetchEmployeeAll: [EmployeeResponse]
 }
+type Mutation {
+    createEmployee(input: EmployeeRequest!): EmployeeResponse!
+}
+
 # タイプ定義
 type EmployeeResponse {
     employeeId: ID!
@@ -13,6 +17,13 @@ type EmployeeResponse {
     gender: String!
     personal: Personal
     historyList: [History]
+}
+
+input EmployeeRequest {
+    employeeId: String!
+    departmentId: Int!
+    employeeName: String!
+    gender: String!
 }
 
 type Department {

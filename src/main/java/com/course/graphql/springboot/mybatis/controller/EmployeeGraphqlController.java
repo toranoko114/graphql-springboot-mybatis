@@ -1,11 +1,13 @@
 package com.course.graphql.springboot.mybatis.controller;
 
+import com.course.graphql.springboot.mybatis.controller.message.EmployeeRequest;
 import com.course.graphql.springboot.mybatis.controller.message.EmployeeResponse;
 import com.course.graphql.springboot.mybatis.service.EmployeeService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -28,5 +30,9 @@ public class EmployeeGraphqlController {
     );
   }
 
+  @MutationMapping
+  public EmployeeResponse createEmployee(@Argument("input") EmployeeRequest request) {
+    return this.modelMapper.map(this.service.create(request), EmployeeResponse.class);
+  }
 
 }
