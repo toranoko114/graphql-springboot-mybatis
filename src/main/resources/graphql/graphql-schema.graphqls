@@ -8,20 +8,28 @@ type Query {
 # タイプ定義
 type EmployeeResponse {
     employeeId: ID!
-    employeeName: String
+    employeeName: String!
     department: Department
-    gender: String
+    gender: String!
     personal: Personal
+    historyList: [History]
 }
 
 type Department {
     departmentId: ID!
-    departmentName: String
+    departmentName: String!
 }
 
 type Personal {
     employeeId: ID!
-    birthday: Date
-    telephoneNumber: String
-    mailAddress: String
+    birthday: Date!
+    telephoneNumber: String!
+    mailAddress: String!
+}
+
+type History {
+    startDate: Date!
+    employeeId: String!
+    departmentId: Int!
+    content: String
 }

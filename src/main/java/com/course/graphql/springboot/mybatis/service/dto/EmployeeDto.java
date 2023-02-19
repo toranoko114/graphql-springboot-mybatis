@@ -1,6 +1,7 @@
 package com.course.graphql.springboot.mybatis.service.dto;
 
 import com.course.graphql.springboot.mybatis.enums.Department;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class EmployeeDto {
   private Department department;
   private String gender;
   private PersonalDto personal;
+  private List<HistoryDto> historyList;
 }
