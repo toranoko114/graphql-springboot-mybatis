@@ -27,6 +27,14 @@ input EmployeeRequest {
     birthday: Date!
     telephoneNumber: String!
     mailAddress: String!
+    historyList: [HistoryInput]!
+}
+
+input HistoryInput {
+    startDate: Date!
+    employeeId: String!
+    departmentId: Int!
+    content: String
 }
 
 type Department {

@@ -4,6 +4,7 @@ import com.course.graphql.springboot.mybatis.controller.message.EmployeeRequest;
 import com.course.graphql.springboot.mybatis.infrastructure.mapper.EmployeeMapper;
 import com.course.graphql.springboot.mybatis.service.dto.EmployeeDto;
 import com.course.graphql.springboot.mybatis.service.entity.EmployeeEntity;
+import com.course.graphql.springboot.mybatis.service.entity.HistoryEntity;
 import com.course.graphql.springboot.mybatis.service.entity.PersonalEntity;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -25,11 +26,11 @@ public class EmployeeService {
   public List<EmployeeDto> fetchEmployeeAll() {
     return this.mapper.fetchEmployeeAll();
   }
-
   public EmployeeDto create(EmployeeRequest request) {
     var employee = this.modelMapper.map(request, EmployeeEntity.class);
     var personal = this.modelMapper.map(request, PersonalEntity.class);
-    this.logic.create(employee, personal);
+    var history = List.of(this.modelMapper.map(request.getHistoryList(), HistoryEntity[].class));
+    this.logic.create(employee, personal, history);
     return this.fetchEmployeeById(employee.getEmployeeId());
   }
 
