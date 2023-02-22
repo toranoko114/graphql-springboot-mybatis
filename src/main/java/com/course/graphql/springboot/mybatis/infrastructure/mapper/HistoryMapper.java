@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface HistoryMapper {
 
-  void insert(List<HistoryEntity> historyList);
-
-  void update(List<HistoryEntity> historyList);
+  void upsert(List<HistoryEntity> historyList);
 
 }

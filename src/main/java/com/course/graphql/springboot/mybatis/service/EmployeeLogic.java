@@ -24,7 +24,7 @@ public class EmployeeLogic {
   public void create(EmployeeEntity employee, PersonalEntity personal, List<HistoryEntity> history) {
     this.employeeMapper.insert(employee);
     this.personalMapper.insert(personal);
-    this.historyMapper.insert(history);
+    this.historyMapper.upsert(history);
   }
 
   @Transactional(propagation = Propagation.NESTED)
@@ -32,7 +32,7 @@ public class EmployeeLogic {
       List<HistoryEntity> history) {
     this.employeeMapper.update(employeeId, employee);
     this.personalMapper.update(employeeId, personal);
-    this.historyMapper.update(history);
+    this.historyMapper.upsert(history);
   }
 
 }
