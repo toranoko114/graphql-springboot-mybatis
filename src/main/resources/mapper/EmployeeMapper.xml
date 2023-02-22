@@ -73,5 +73,16 @@
       )
   </insert>
 
+  <update id="update">
+    UPDATE
+      EMPLOYEE
+    SET
+      EMPLOYEE_NAME = #{entity.employeeName},
+      DEPARTMENT_ID = #{entity.departmentId},
+      GENDER = #{entity.gender}
+    WHERE
+      EMPLOYEE_ID = #{employeeId}
+  </update>
+
 
 </mapper>

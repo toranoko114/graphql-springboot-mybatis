@@ -9,4 +9,6 @@ public interface HistoryMapper {
 
   void insert(List<HistoryEntity> historyList);
 
+  void update(List<HistoryEntity> historyList);
+
 }

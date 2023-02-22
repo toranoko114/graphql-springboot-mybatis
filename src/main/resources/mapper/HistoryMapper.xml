@@ -21,4 +21,28 @@
     </foreach>
   </insert>
 
+  <update id="update">
+    INSERT INTO HISTORY
+    (
+    START_DATE,
+    EMPLOYEE_ID,
+    DEPARTMENT_ID,
+    CONTENT
+    )
+    VALUES
+    <foreach collection="historyList" item="item" separator=",">
+      (
+      #{item.startDate},
+      #{item.employeeId},
+      #{item.departmentId},
+      #{item.content}
+      )
+    </foreach>
+    ON DUPLICATE KEY UPDATE
+      START_DATE = VALUES(START_DATE),
+      EMPLOYEE_ID = VALUES(EMPLOYEE_ID),
+      DEPARTMENT_ID = VALUES(DEPARTMENT_ID),
+      CONTENT = VALUES(CONTENT)
+  </update>
+
 </mapper>

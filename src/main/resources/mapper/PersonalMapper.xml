@@ -19,4 +19,15 @@
       )
   </insert>
 
+  <update id="update">
+    UPDATE
+      PERSONAL
+    SET
+      BIRTHDAY = #{entity.birthday},
+      TELEPHONE_NUMBER = #{entity.telephoneNumber},
+      MAIL_ADDRESS = #{entity.mailAddress}
+    WHERE
+      EMPLOYEE_ID = #{employeeId}
+  </update>
+
 </mapper>

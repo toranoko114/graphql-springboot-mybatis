@@ -15,4 +15,6 @@ public interface EmployeeMapper {
 
   void insert(EmployeeEntity entity);
 
+  void update(@Param("employeeId") String employeeId, @Param("entity") EmployeeEntity entity);
+
 }

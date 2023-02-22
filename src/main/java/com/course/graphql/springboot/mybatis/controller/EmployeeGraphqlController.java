@@ -19,7 +19,7 @@ public class EmployeeGraphqlController {
   private final ModelMapper modelMapper;
 
   @QueryMapping
-  public EmployeeResponse fetchEmployeeById(@Argument final String employeeId) {
+  public EmployeeResponse fetchEmployeeById(@Argument String employeeId) {
     return this.modelMapper.map(this.service.fetchEmployeeById(employeeId), EmployeeResponse.class);
   }
 
@@ -33,6 +33,12 @@ public class EmployeeGraphqlController {
   @MutationMapping
   public EmployeeResponse createEmployee(@Argument("input") EmployeeRequest request) {
     return this.modelMapper.map(this.service.create(request), EmployeeResponse.class);
+  }
+
+  @MutationMapping
+  public EmployeeResponse updateEmployee(@Argument("employeeId") String employeeId,
+      @Argument("input") EmployeeRequest request) {
+    return this.modelMapper.map(this.service.update(employeeId, request), EmployeeResponse.class);
   }
 
 }

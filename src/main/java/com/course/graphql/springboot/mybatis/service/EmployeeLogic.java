@@ -27,4 +27,12 @@ public class EmployeeLogic {
     this.historyMapper.insert(history);
   }
 
+  @Transactional(propagation = Propagation.NESTED)
+  public void update(String employeeId, EmployeeEntity employee, PersonalEntity personal,
+      List<HistoryEntity> history) {
+    this.employeeMapper.update(employeeId, employee);
+    this.personalMapper.update(employeeId, personal);
+    this.historyMapper.update(history);
+  }
+
 }
