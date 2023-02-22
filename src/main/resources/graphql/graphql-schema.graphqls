@@ -8,6 +8,7 @@ type Query {
 type Mutation {
     createEmployee(input: EmployeeRequest!): EmployeeResponse!
     updateEmployee(employeeId: ID!, input: EmployeeRequest!): EmployeeResponse!
+    deleteEmployee(employeeId: ID!): ID!
 }
 
 # タイプ定義

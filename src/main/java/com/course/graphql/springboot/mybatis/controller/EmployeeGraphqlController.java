@@ -41,4 +41,9 @@ public class EmployeeGraphqlController {
     return this.modelMapper.map(this.service.update(employeeId, request), EmployeeResponse.class);
   }
 
+  @MutationMapping
+  public String deleteEmployee(@Argument("employeeId") String employeeId) {
+    this.service.deleteById(employeeId);
+    return employeeId;
+  }
 }

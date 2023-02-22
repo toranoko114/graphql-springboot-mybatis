@@ -46,4 +46,8 @@ public class EmployeeService {
     return this.fetchEmployeeById(employeeId);
   }
 
+  public void deleteById(String employeeId) {
+    this.logic.deleteById(employeeId);
+  }
+
 }

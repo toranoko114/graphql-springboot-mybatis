@@ -3,6 +3,7 @@ package com.course.graphql.springboot.mybatis.infrastructure.mapper;
 import com.course.graphql.springboot.mybatis.service.dto.EmployeeDto;
 import com.course.graphql.springboot.mybatis.service.entity.EmployeeEntity;
 import java.util.List;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,5 +17,8 @@ public interface EmployeeMapper {
   void insert(EmployeeEntity entity);
 
   void update(@Param("employeeId") String employeeId, @Param("entity") EmployeeEntity entity);
+
+  @Delete("DELETE FROM EMPLOYEE WHERE EMPLOYEE_ID = #{employeeId}")
+  void delete(String employeeId);
 
 }

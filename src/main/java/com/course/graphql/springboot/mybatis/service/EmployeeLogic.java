@@ -35,4 +35,11 @@ public class EmployeeLogic {
     this.historyMapper.upsert(history);
   }
 
+  @Transactional(propagation = Propagation.NESTED)
+  public void deleteById(String employeeId) {
+    this.employeeMapper.delete(employeeId);
+    this.personalMapper.delete(employeeId);
+    this.historyMapper.delete(employeeId);
+  }
+
 }
